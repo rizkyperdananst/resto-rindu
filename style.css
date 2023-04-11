@@ -3,6 +3,10 @@
      padding: 0;
 }
 
+html {
+     scroll-behavior: smooth;
+}
+
 body {
      font-family: 'Amatic SC', cursive;
      font-family: 'Quicksand', sans-serif;
@@ -220,6 +224,37 @@ nav ul li a:hover {
      filter: drop-shadow(0 0 5px aqua);
 }
 
+
+/* Effect Scroll To Top */
+.to-top {
+     background-color: aqua;
+     position: fixed;
+     bottom: 16px;
+     right: 32px;
+     width: 40px;
+     height: 40px;
+     border-radius: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 32px;
+     color: white;
+     text-decoration: none;
+     opacity: 0;
+     pointer-events: none;
+     transition: all .4s;
+     z-index: 1000;
+}
+ 
+.to-top.active {
+     bottom: 32px;
+     pointer-events: auto;
+     opacity: 1;
+}
+
+.to-top:hover {
+     filter: drop-shadow(0 0 5px aquamarine);
+}
 
 /* Responsive Breakpoint */
 
