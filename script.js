@@ -16,3 +16,13 @@ window.addEventListener("scroll", () => {
          toTop.classList.remove("active");
      }
 })
+
+// Scroll
+const scroll = document.querySelector('.scroll');
+
+window.addEventListener('scroll', () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    const scrolled = ( scrollTop / ( scrollHeight - clientHeight ) * 100 );
+
+    scroll.style.width = `${scrolled}%`;
+});

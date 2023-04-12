@@ -14,6 +14,16 @@ body {
      overflow-x: hidden;
 }
 
+/* scroll */
+.scroll {
+     position: fixed;
+     left: 0;
+     top: 7.5%;
+     width: 0;
+     height: 3px;
+     background-color: aqua;
+}
+
 /* Navbar */
 nav {
      display: flex;
@@ -24,6 +34,11 @@ nav {
      height: 50px;
      align-items: center;
      box-shadow: 0 0 5px #aaa;
+     position: fixed;
+     z-index: 2;
+     top: 0;
+     left: 0;
+     right: 0;
 }
 
 nav ul {
@@ -126,6 +141,20 @@ nav ul li a:hover {
 
 .hero .hero-item-right img {
      width: 100%;
+     margin-top: -10px;
+     cursor: pointer;
+     transition: all 1s ease-in-out;
+     animation: topBottom 3s ease-in-out infinite;
+     position: absolute;
+}
+
+@keyframes topBottom {
+     50% {
+          margin-top: -50px;
+     }
+     100% {
+          margin-top: -10px;
+     }
 }
 
 .hero .hero-item-left h1 {
@@ -191,6 +220,7 @@ nav ul li a:hover {
 }
 
 .food h2 {
+     margin-top: 50px;
      grid-column: 1 / -1;
 
 }
@@ -256,6 +286,153 @@ nav ul li a:hover {
      filter: drop-shadow(0 0 5px aquamarine);
 }
 
+/* About */
+.about {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+     padding: 20px;
+     gap: 10px;
+}
+
+.about h2 {
+     text-align: center;
+     grid-column: 1 / -1;
+}
+
+.about .about-right h3 {
+     margin-top: 50px;
+     margin-bottom: 10px;
+}
+
+.about .about-right p {
+     margin-bottom: 15px;
+}
+
+.about .about-right button {
+     border: none;
+     padding: 10px 20px;
+     background-color: white;
+     border: 1px solid aqua;
+     border-radius: 5px;
+     color: aqua;
+     cursor: pointer;
+}
+
+.about .about-right button:hover {
+     background-color: aqua;
+     color: white;
+     filter: drop-shadow(0 0 5px aquamarine);
+}
+
+/* Message */
+.message {
+     display: grid;
+     justify-content: center;
+     align-items: center;
+}
+
+.message form {
+     display: grid;
+     grid-template-columns: 500px;
+}
+
+.message h2 {
+     text-align: center;
+}
+
+.message form input, textarea, button {
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #333;
+     margin: 10px 5px;
+}
+
+.message input, textarea {
+     outline: none;
+     caret-color: aqua;
+}
+
+.message input:not(:focus), textarea:not(:focus) {
+     border: 1px solid #333;
+}
+
+.message input:focus:valid, textarea:focus:valid {
+     border: 1px solid aqua;
+}
+
+.message input:focus:invalid,  textarea:focus:invalid {
+     border: 1px solid red;
+}
+
+.message button {
+     border: none;
+     border-radius: 5px;
+     background-color: aqua;
+     color: white;
+}
+
+.message button:hover {
+     cursor: pointer;
+     opacity: 0.8;
+}
+
+/* Footer */
+.footer {
+     display: grid;
+     grid-template-columns: 2fr 1fr 1fr;
+     justify-content: center;
+     align-content: center;
+     grid-template-areas: 
+          'footer-left footer-right-1 footer-right-2'
+          'footer-left footer-right-1 footer-right-2'
+          'footer-left footer-right-1 footer-right-2';
+     background-color: aqua;
+}
+
+.footer .footer-left {
+     grid-area: footer-left;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+}
+
+.footer .footer-left img {
+     width: 100%;
+}
+
+.footer .footer-left p {
+     margin-top: 40px;
+}
+
+.footer .footer-right-1 {
+     grid-area: footer-right-1;
+     padding: 15px 25px;
+}
+
+.footer .footer-right-2 i {
+     font-size: 18px;
+     margin-right: 20px;
+}
+
+.footer .footer-right-1 ul {
+     list-style-type:square ;
+     margin-top: 5px;
+}
+.footer .footer-right-2 {
+     grid-area: footer-right-2;
+}
+
+.footer .footer-right-2 h4 {
+     margin-top: 15px;
+     margin-bottom: 5px;
+}
+
+.footer .footer-right-2 ul {
+     padding: 0 5px;
+     list-style-type: none;
+}
+
+
+
 /* Responsive Breakpoint */
 
 /* Ukuran Tablet */
@@ -299,6 +476,17 @@ nav ul li a:hover {
      .hero {
           grid-template-areas: 
                'hero-item-left'
-               'hero-item-right';
+               /* 'hero-item-right'; */
+     }
+
+     .message form {
+          grid-template-columns: 400px;
+     }
+
+     .footer {
+          grid-template-areas: 
+               'footer-left'
+               'footer-right-1'
+               'footer-right-2';
      }
 }
